@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/barchart.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: e698b0c8b5901f043b944046a57da09f,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f3806fd7c6c9be5479f76e50f1175b81,
+      type: 2}

@@ -35,5 +35,5 @@ def checkAns(type):
     scoreDF['sum'] = scoreDF.sum(axis=1)
     scoreDF.to_csv(type+"scores.csv", sep=",")
 
-#checkAns("2D")
+checkAns("2D")
 checkAns("AR")

@@ -27,14 +27,13 @@ def checkAns(type):
                     else:
                         scoreDF.iloc[i-1,j] = 0
                 for j in range(len(others)):
-                    others[j] = others[j].strip()
                     answer = others[j][0]
-                    if(answer == answers[j]):
+                    if(answer == answers[j+10]):
                         scoreDF.iloc[i-1,j+10] = 1
                     else:
                         scoreDF.iloc[i-1,j+10] = 0
     scoreDF['sum'] = scoreDF.sum(axis=1)
     scoreDF.to_csv(type+"scores.csv", sep=",")
 
-checkAns("2D")
+#checkAns("2D")
 checkAns("AR")

@@ -1,0 +1,38 @@
+Extremes
+
+Country E
+Country A
+Country B
+Country A
+Country C
+Country A
+Country F
+Country F
+Country E
+Country B
+================================
+Numeric
+
+False
+True
+True
+True
+True
+True
+True
+False
+False
+True
+================================
+Facts
+
+False
+True
+False
+True
+False
+True
+False
+False
+False
+False

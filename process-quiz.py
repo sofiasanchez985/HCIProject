@@ -1,8 +1,17 @@
 import os.path
-from numpy import ndarray
 import pandas as pd
 import numpy as np
- 
+import matplotlib.pyplot as plt
+
+def summary(df):
+    chartDF = pd.DataFrame(columns=["total","extreme", "numeric", "fact"])
+    chartDF['total'] = df.sum(axis=1)
+    chartDF['extreme'] = df.iloc[:,0:10].sum(axis=1)
+    chartDF['numeric'] = df.iloc[:,10:20].sum(axis=1)
+    chartDF['fact'] = df.iloc[:,20:30].sum(axis=1) 
+
+    return chartDF
+
 def checkAns(type):
     input = pd.read_csv( type+".csv", sep = ",", header=1, index_col="Participant ID")
     input = input.drop('Participant Name', axis=1)
@@ -32,8 +41,20 @@ def checkAns(type):
                         scoreDF.iloc[i-1,j+10] = 1
                     else:
                         scoreDF.iloc[i-1,j+10] = 0
-    scoreDF['sum'] = scoreDF.sum(axis=1)
     scoreDF.to_csv(type+"scores.csv", sep=",")
+    return scoreDF
 
-checkAns("2D")
-checkAns("AR")
+score2D = checkAns("2D")
+scoreAR = checkAns("AR")
+
+summary2D = summary(score2D)
+summaryAR = summary(scoreAR)
+
+chart = pd.DataFrame(columns=summary2D.columns)
+for col in chart.columns:
+    if col == "total":
+        p = np.sum(summaryAR[col])/30
+    else:
+        p = np.sum(summaryAR[col])/10
+        chart[col].append(p)
+print(chart)
